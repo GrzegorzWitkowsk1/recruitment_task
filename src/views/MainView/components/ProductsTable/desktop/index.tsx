@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Table,
   TableHeader,
@@ -9,31 +8,25 @@ import {
   TableFooter,
 } from "@/components/ui/table";
 import { categories } from "@/config";
-import { usePaginatedProducts } from "@/store/usePaginatedProducts";
 import { Pagination } from "../shared/Pagination";
 import {
   pluralize,
   renderQuantityInStock,
   renderStatus,
 } from "../shared/helpers";
+import type { ProductType } from "@/views/MainView/types";
 
-export default function DesktopProductsTable() {
-  const { products, page, setPage, pageItems, totalPages } = usePaginatedProducts();
-  const productsCount = products.length;
+interface Props { 
+  pageItems: ProductType[]
+  page: number
+  totalPages: number
+  setPage:(value: number) => Promise<URLSearchParams>
+  productsCount: number
+}
 
+export default function DesktopProductsTable({pageItems, page, totalPages, setPage,productsCount}: Props) {
   return (
-    <div className="flex flex-col w-[70%] items-center gap-6 hidden md:flex">
-      <div className="flex flex-row w-[100%] items-center justify-between">
-        <div className="flex flex-col gap-1">
-          <h1 className="text-xl font-semibold">Produkty</h1>
-          <span className="text-sm text-muted-foreground">
-            {productsCount} {pluralize(productsCount)} w katalogu
-          </span>
-        </div>
-        <Button variant="default">
-          + Dodaj produkt
-        </Button>
-      </div>
+
       <Table>
         <TableHeader>
           <TableRow>
@@ -79,6 +72,5 @@ export default function DesktopProductsTable() {
           </TableRow>
         </TableFooter>
       </Table>
-    </div>
   );
 }

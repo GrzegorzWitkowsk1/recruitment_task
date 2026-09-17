@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { categories } from "@/config";
-import { usePaginatedProducts } from "@/store/usePaginatedProducts";
 import type { ProductType } from "@/views/MainView/types";
 import { Pagination } from "../shared/Pagination";
 import {
@@ -41,34 +39,30 @@ function ProductCard({ product }: { product: ProductType }) {
   );
 }
 
-export default function MobileProductsTable() {
-  const { products, page, setPage, pageItems, totalPages } = usePaginatedProducts();
-  const productsCount = products.length;
+interface Props { 
+  pageItems: ProductType[]
+  page: number
+  totalPages: number
+  setPage:(value: number) => Promise<URLSearchParams>
+  productsCount: number
+}
+
+
+export default function MobileProductsTable({pageItems, page, totalPages, setPage, productsCount}: Props) {
 
   return (
-    <div className="mx-auto w-full max-w-md px-4 md:hidden">
-      <div className="flex items-center justify-between py-6">
-        <div className="flex flex-col gap-1">
-          <h1 className="text-xl font-semibold">Produkty</h1>
-          <span className="text-sm text-muted-foreground">
-            {productsCount} {pluralize(productsCount)} w katalogu
-          </span>
-        </div>
-        <Button variant="default">
-          + Dodaj produkt
-        </Button>
-      </div>
+      <>
       <div className="flex flex-col gap-3">
-        {pageItems.map((product) => (
-          <ProductCard key={product.productSKU} product={product} />
-        ))}
-      </div>
-      <div className="flex flex-col items-center gap-3 py-6">
+      {pageItems.map((product) => (
+        <ProductCard key={product.productSKU} product={product} />
+      ))}
+    </div><div className="flex flex-col items-center gap-3 py-6">
         <span className="text-xs text-muted-foreground">
           Strona {page} z {totalPages} · {productsCount} {pluralize(productsCount)}
         </span>
         <Pagination page={page} setPage={setPage} totalPages={totalPages} />
       </div>
-    </div>
+      </>
+  
   );
 }
