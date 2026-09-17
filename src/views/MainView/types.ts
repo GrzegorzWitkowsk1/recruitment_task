@@ -4,7 +4,7 @@ export type Category = typeof categoryOptions[number]["value"];
 export type Attributes = typeof productAttributesOptions[number]["value"];
 export type Currency = typeof currencyOptions[number]["value"];
 export type Producer = typeof producersOptions[number]["value"];
-export interface ProductType {
+export interface ProductBaseType {
   productName: string
   producer: Producer
   productSKU: string
@@ -21,3 +21,13 @@ export interface ProductType {
   minQuantityInCart?: number
   maxQuantityInCart?: number
 }
+
+export type ProductType =
+  | (ProductBaseType & {
+      limited: true;
+      quantityInStock: number;
+    })
+  | (ProductBaseType & {
+      limited: false;
+      quantityInStock?: number;
+    });
