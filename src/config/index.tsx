@@ -1,44 +1,30 @@
 
-interface OptionType {
-    value: string
-    label: string
-}
+export const currencyOptions = {
+  PLN: "PLN",
+  USD: "USD",
+  EUR: "EUR",
+} as const;
 
-export const currencyOptions = [
-  { value: "PLN", label: "PLN" },
-  { value: "USD", label: "USD" },
-  { value: "EUR", label: "EUR" },
-] as const satisfies OptionType[];
+export const productAttributesOptions = {
+  bluetooth: "Bluetooth",
+  wifi: "Wi-Fi",
+  "usb-c": "USB-C",
+  waterproof: "Wodoodporny",
+  wireless: "Bezprzewodowy",
+  ecological: "Ekologiczny",
+  premium: "Premium",
+} as const;
 
-export const productAttributesOptions = [
-  { value: "bluetooth", label: "Bluetooth" },
-  { value: "wifi", label: "Wi-Fi" },
-  { value: "usb-c", label: "USB-C" },
-  { value: "waterproof", label: "Wodoodporny" },
-  { value: "wireless", label: "Bezprzewodowy" },
-  { value: "ecological", label: "Ekologiczny" },
-  { value: "premium", label: "Premium" },
-]  as const satisfies OptionType[];
+export const categories = {
+  computers: "Komputery",
+  phones: "Telefony",
+  rtv: "RTV",
+  agd: "AGD",
+  accesories: "Akcesoria",
+} as const;
 
-export const categoryOptions = [
-  { value: "computers", label: "Komputery" },
-  { value: "phones", label: "Telefony" },
-  { value: "rtv", label: "RTV" },
-  { value: "agd", label: "AGD" },
-  { value: "accesories", label: "Akcesoria" },
-] as const satisfies OptionType[];
-
-export const producersOptions = [
-  {
-    value: "a",
-    label: "producer A",
-  },
-  {
-    value: "b",
-    label: "producer B",
-  },
-  {
-    value: "c",
-    label: "producer C",
-  },
-] as const satisfies OptionType[];
+export const producersOptions = {
+  a: "producer A",
+  b: "producer B",
+  c: "producer C",
+} as const;

@@ -61,5 +61,31 @@ export const DefaultProducts: ProductType[] = [
     currency:'PLN',
     available: true,
     limited: false
+  },
+  {
+    productName: 'Apple iPad Air 11',
+    productSKU: 'IPADAIR11M2',
+    producer: 'a',
+    category: 'computers',
+    productsAttrs: [],
+    grossPrice: 2999,
+    taxRate: 23,
+    currency: 'PLN',
+    available: true,
+    limited: false,
+  },
+  {
+    productName: 'Philips OLED 708',
+    productSKU: 'PHOLED70855',
+    producer: 'c',
+    category: 'rtv',
+    productsAttrs: [],
+    grossPrice: 4499,
+    taxRate: 23,
+    currency: 'PLN',
+    available: false,
+    limited: true,
+    quantityInStock: 12,
   }
+
 ] 

@@ -1,9 +1,9 @@
-import { categoryOptions, currencyOptions, producersOptions, productAttributesOptions } from '../../config'
+import { categories, currencyOptions, producersOptions, productAttributesOptions } from '../../config'
 
-export type Category = typeof categoryOptions[number]["value"];
-export type Attributes = typeof productAttributesOptions[number]["value"];
-export type Currency = typeof currencyOptions[number]["value"];
-export type Producer = typeof producersOptions[number]["value"];
+export type Category = keyof typeof categories;
+export type Attributes = keyof typeof productAttributesOptions;
+export type Currency = keyof typeof currencyOptions;
+export type Producer = keyof typeof producersOptions;
 export interface ProductBaseType {
   productName: string
   producer: Producer
