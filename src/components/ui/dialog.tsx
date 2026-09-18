@@ -39,53 +39,53 @@ function DialogOverlay({ className, ...props }: DialogPrimitive.Backdrop.Props) 
 function DialogContent({
   className,
   children,
-  showCloseButton = true,
   ...props
-}: DialogPrimitive.Popup.Props & {
-  showCloseButton?: boolean
-}) {
+}: DialogPrimitive.Popup.Props) {
   return (
     <DialogPortal>
       <DialogOverlay />
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none sm:max-w-[720px] data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          "fixed inset-0 z-50 flex w-full flex-col gap-4 overflow-hidden rounded-none bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none sm:inset-auto sm:top-1/2 sm:left-1/2 sm:max-w-[720px] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:overflow-visible sm:rounded-xl data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
           className
         )}
         {...props}
       >
         {children}
-        {showCloseButton && (
-          <DialogPrimitive.Close
-            data-slot="dialog-close"
-            render={
-              <Button
-                variant="ghost"
-                className="absolute top-6 right-4"
-                size="icon-sm"
-              />
-            }
-          >
-            <X data-slot="dialog-close-icon" className="size-4" />
-            <span className="sr-only">Close</span>
-          </DialogPrimitive.Close>
-        )}
       </DialogPrimitive.Popup>
     </DialogPortal>
   )
 }
 
-function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
+function DialogHeader({
+  className,
+  showCloseButton = true,
+  children,
+  ...props
+}: React.ComponentProps<"div"> & {
+  showCloseButton?: boolean
+}) {
   return (
     <div
       data-slot="dialog-header"
       className={cn(
-        "-mx-4 -mt-4 flex flex-col gap-2 rounded-t-xl border-b p-4 pt-6",
+        "-mx-4 -mt-4 flex items-center justify-between gap-2 rounded-t-xl border-b p-4 pt-6",
         className
       )}
       {...props}
-    />
+    >
+      {children}
+      {showCloseButton && (
+        <DialogPrimitive.Close
+          data-slot="dialog-close"
+          render={<Button variant="ghost" size="icon-sm" />}
+        >
+          <X data-slot="dialog-close-icon" className="size-4" />
+          <span className="sr-only">Close</span>
+        </DialogPrimitive.Close>
+      )}
+    </div>
   )
 }
 

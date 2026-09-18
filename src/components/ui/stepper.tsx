@@ -19,7 +19,7 @@ function Stepper({
   return (
     <ol
       data-slot="stepper"
-      className={cn("flex items-center gap-4 border-b px-4 py-3", className)}
+      className={cn("flex items-center gap-4 border-b px-3 py-4", className)}
       {...props}
     >
       {steps.map((step, index) => {
@@ -31,10 +31,16 @@ function Stepper({
               <li
                 aria-hidden
                 data-slot="stepper-connector"
-                className="h-px flex-1 bg-border"
+                className={cn(
+                  "h-px flex-1",
+                  index <= current ? "bg-primary" : "bg-border"
+                )}
               />
             )}
-            <li data-slot="stepper-item" className="flex items-center gap-3">
+            <li
+              data-slot="stepper-item"
+              className="flex flex-col items-center gap-1.5 sm:flex-row sm:items-center sm:gap-3"
+            >
               <span
                 data-slot="stepper-indicator"
                 data-state={
@@ -58,7 +64,10 @@ function Stepper({
                   </span>
                 )}
               </span>
-              <span data-slot="stepper-label" className="flex flex-col">
+              <span
+                data-slot="stepper-label"
+                className="flex flex-col items-center text-center sm:items-start sm:text-left"
+              >
                 <span
                   data-slot="stepper-title"
                   className="text-sm leading-tight"
