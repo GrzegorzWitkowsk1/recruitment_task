@@ -1,4 +1,5 @@
 import type { ProductType } from "@/views/MainView/types"
+
 import type { FormData } from "./schema"
 
 export function buildProduct(data: FormData): ProductType {

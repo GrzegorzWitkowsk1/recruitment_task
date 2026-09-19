@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo } from "react"
 import { useSelector } from "@tanstack/react-form"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import * as z from "zod"
+
 import { Button } from "@/components/ui/button"
 import {
   DialogContent,
@@ -11,6 +12,7 @@ import {
 } from "@/components/ui/dialog"
 import { Stepper } from "@/components/ui/stepper"
 import type { ProductType } from "@/views/MainView/types"
+
 import { buildProduct } from "./buildProduct"
 import FirstStep from "./components/formContent/firstStep"
 import SecondStep from "./components/formContent/secondStep"

@@ -1,4 +1,5 @@
 import { useSelector } from "@tanstack/react-form"
+
 import { Checkbox } from "@/components/ui/checkbox"
 import {
   Field,
@@ -8,6 +9,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Switch } from "@/components/ui/switch"
+
 import type { AddProductForm } from "../../form"
 
 interface Props {

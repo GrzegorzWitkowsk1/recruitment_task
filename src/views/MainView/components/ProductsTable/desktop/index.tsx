@@ -8,13 +8,14 @@ import {
   TableFooter,
 } from "@/components/ui/table";
 import { categories } from "@/config";
+import type { ProductType } from "@/views/MainView/types";
+
 import { Pagination } from "../shared/Pagination";
 import {
   pluralize,
   renderQuantityInStock,
   renderStatus,
 } from "../shared/helpers";
-import type { ProductType } from "@/views/MainView/types";
 
 interface Props { 
   pageItems: ProductType[]

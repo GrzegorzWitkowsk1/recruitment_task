@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react"
-import { CircleCheck } from "lucide-react"
-import DesktopProductsTable from "./components/ProductsTable/desktop"
-import MobileProductsTable from "./components/ProductsTable/Mobile"
+import { Check } from "lucide-react"
+
 import { Dialog, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Toast } from "@/components/ui/toast"
 import AddProductDialog from "./components/AddProductDialog"
 import { addProduct } from "@/store/products"
 import { usePaginatedProducts } from "@/store/usePaginatedProducts"
+
+import DesktopProductsTable from "./components/ProductsTable/desktop"
+import MobileProductsTable from "./components/ProductsTable/Mobile"
 import { pluralize } from "./components/ProductsTable/shared/helpers"
 
 export default function MainView() {
@@ -34,7 +36,7 @@ export default function MainView() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-6 p-4 md:mb-6 md:p-0">
+      <div className="flex flex-col items-center justify-center gap-6 p-4 md:mb-6 mt-2 sm:mt-6 md:p-0">
         <div className="flex w-full flex-row items-center justify-between md:w-[70%]">
           <div className="flex flex-col gap-1">
             <h1 className="text-xl font-semibold">Produkty</h1>
@@ -69,7 +71,7 @@ export default function MainView() {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="flex hidden w-[70%] flex-col items-center gap-6 md:flex">
+        <div className="hidden w-[70%] flex-col items-center gap-6 md:flex">
           <DesktopProductsTable
             pageItems={pageItems}
             page={page}
@@ -91,7 +93,7 @@ export default function MainView() {
       {toastVisible && (
         <Toast>
           <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-success">
-            <CircleCheck className="size-4 text-white" />
+            <Check className="size-4 text-white" />
           </span>
           Produkt został dodany
         </Toast>

@@ -1,10 +1,11 @@
+import { z } from "zod"
+
 import {
   categories,
   currencyOptions as currencyOptionsConfig,
   producersOptions,
   productAttributesOptions,
 } from "@/config"
-import { z } from "zod"
 
 const producerOptions = Object.keys(producersOptions) as [
   keyof typeof producersOptions,

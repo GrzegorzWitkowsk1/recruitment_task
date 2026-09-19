@@ -9,8 +9,8 @@ import {
 
 function ProductCard({ product }: { product: ProductType }) {
   return (
-    <div className="rounded-lg border border-border bg-card p-4">
-      <div className="flex items-start justify-between gap-3">
+    <div className="rounded-lg border border-border bg-card p-3">
+      <div className="flex items-center justify-between gap-3">
         <div className="flex flex-col gap-0.5">
           <span className="text-sm font-medium">{product.productName}</span>
           <span className="text-xs text-muted-foreground">

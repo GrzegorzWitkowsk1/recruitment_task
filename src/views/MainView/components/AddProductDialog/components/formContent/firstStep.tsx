@@ -1,3 +1,5 @@
+import { cn } from "cn"
+
 import {
   categories,
   productAttributesOptions,
@@ -23,7 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { cn } from "cn"
+
 import type { AddProductForm } from "../../form"
 
 interface Props {

@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 import { currencyOptions } from "@/config"
 import {
   Field,
@@ -18,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+
 import type { AddProductForm } from "../../form"
 
 interface Props {
